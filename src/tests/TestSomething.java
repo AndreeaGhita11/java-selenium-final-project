@@ -37,6 +37,6 @@ public class TestSomething {
         WebElement drop = driver.findElement(By.id("droppable"));
         Actions action = new Actions(driver);
         action.dragAndDrop(drag, drop).build().perform();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
     }
 }
