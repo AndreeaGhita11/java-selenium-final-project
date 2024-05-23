@@ -47,14 +47,14 @@ public class ProductsTest {
     @Test@Ignore
     public void addProductToTheCart () {
         driver.get(URLs.TEST_ENV);
-        loginPage.authenticate(correctUser.getUsername(), correctUser.getPassword());
+        loginPage.authenticate(correctUser);
         productsPage.addProducts();
         Assert.assertTrue(productsPage.areRemoveButtonsDisplayed());
     }
     @Test
     public void removeProductToTheeCart() throws InterruptedException {
         driver.get(URLs.TEST_ENV);
-        loginPage.authenticate(correctUser.getUsername(), correctUser.getPassword());
+        loginPage.authenticate(correctUser);
         productsPage.removeProducts();
         Assert.assertFalse(productsPage.shoopingCartBadgeisDisplayed());
     }
@@ -62,7 +62,7 @@ public class ProductsTest {
     @Test@Ignore
     public void logoutUser() {
         driver.get(URLs.TEST_ENV);
-        loginPage.authenticate(correctUser.getUsername(), correctUser.getPassword());
+        loginPage.authenticate(correctUser);
         productsPage.addProducts();
         productsPage.logoutUser();
         WebElement loginButton = driver.findElement(By.id("login-button"));

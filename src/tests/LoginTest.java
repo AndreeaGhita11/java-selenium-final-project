@@ -41,32 +41,32 @@ public class LoginTest {
         driver.close();
     }
 
-    @Test@Ignore
+    @Test
     public void loginWithCorrectUser() {
         driver.get(URLs.TEST_ENV);
-        loginPage.authenticate(correctUser.getUsername(), correctUser.getPassword());
+        loginPage.authenticate(correctUser);
         WebElement shoppingcartButton = driver.findElement(By.id("shopping_cart_container"));
         Assert.assertTrue(shoppingcartButton.isDisplayed());
     }
 
-    @Test@Ignore
+    @Test
     public void loginWithInvalidData(){
         driver.get(URLs.TEST_ENV);
-        loginPage.authenticate(invalidData.getUsername(),invalidData.getPassword());
+        loginPage.authenticateInvalidUser(invalidData);
         Assert.assertTrue(loginPage.getError().contains(LoginErrors.INVLALID_DATA));
     }
 
-    @Test@Ignore
+    @Test
     public void loginWithMissingData() {
         driver.get(URLs.TEST_ENV);
-        loginPage.authenticate(missingData.getUsername(), missingData.getPassword());
+        loginPage.authenticateMissingData(missingData);
         Assert.assertTrue(loginPage.getError().contains(LoginErrors.MISSING_DATA));
     }
 
     @Test
     public void loginWithLockedOutUser() {
         driver.get(URLs.TEST_ENV);
-        loginPage.authenticate(lockedOutUser.getUsername(), lockedOutUser.getPassword());
+        loginPage.authenticateLockedOutUser(lockedOutUser);
         Assert.assertTrue(loginPage.getError().contains(LoginErrors.LOCKED_OUT_USER));
     }
 

@@ -3,6 +3,10 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import testdata.classes.CorrectUser;
+import testdata.classes.InvalidUserData;
+import testdata.classes.LockedOutUser;
+import testdata.classes.MissingUserData;
 
 import java.time.Duration;
 
@@ -35,9 +39,27 @@ public class LoginPage {
         return driver.findElement(errorMessage).getText();
     }
 
-    public void authenticate(String username, String password) {
-        enterUsername(username);
-        enterPassword(password);
+    public void authenticate(CorrectUser correctUser) {
+        enterUsername(correctUser.getUsername());
+        enterPassword(correctUser.getPassword());
+        clickLoginButton();
+    }
+
+    public void authenticateInvalidUser(InvalidUserData invalidUserData) {
+        enterUsername(invalidUserData.getUsername());
+        enterPassword(invalidUserData.getPassword());
+        clickLoginButton();
+    }
+
+    public void authenticateMissingData(MissingUserData missingUserData) {
+        enterUsername(missingUserData.getUsername());
+        enterPassword(missingUserData.getPassword());
+        clickLoginButton();
+    }
+
+    public void authenticateLockedOutUser(LockedOutUser lockedOutUser) {
+        enterUsername(lockedOutUser.getUsername());
+        enterPassword(lockedOutUser.getPassword());
         clickLoginButton();
     }
 }
