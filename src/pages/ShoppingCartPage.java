@@ -8,7 +8,6 @@ public class ShoppingCartPage {
     public ShoppingCartPage(WebDriver driver){
         this.driver = driver;
     }
-    private By removeTshirtButton = By.id("remove-sauce-labs-bolt-t-shirt");
     private By checkoutButton = By.id("checkout");
     private By firstNameInput = By.id("first-name");
     private By lastNameInput = By.id("last-name");
@@ -16,10 +15,6 @@ public class ShoppingCartPage {
     private By continueButton = By.id("continue");
     private By finishButton = By.id("finish");
     private By backHomeButton = By.id("back-to-products");
-
-    public void removeProductFromCart() {
-        driver.findElement(removeTshirtButton).click();
-    }
 
     public void checkoutOrder(){
         driver.findElement(checkoutButton).click();
