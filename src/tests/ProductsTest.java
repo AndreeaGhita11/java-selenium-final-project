@@ -52,12 +52,13 @@ public class ProductsTest {
         driver.get(URLs.TEST_ENV);
         loginPage.authenticate(correctUser.getUsername(), correctUser.getPassword());
         productsPage.addProducts();
-        WebElement removeBackpackButton = driver.findElement(By.id("remove-sauce-labs-backpack"));
-        WebElement removeTshirtButton = driver.findElement(By.id("remove-sauce-labs-bolt-t-shirt"));
-        Assert.assertTrue(removeBackpackButton.isDisplayed());
-        Assert.assertTrue(removeTshirtButton.isDisplayed());
-    }
+//        WebElement removeBackpackButton = driver.findElement(By.id("remove-sauce-labs-backpack"));
+//        WebElement removeTshirtButton = driver.findElement(By.id("remove-sauce-labs-bolt-t-shirt"));
+//        Assert.assertTrue(removeBackpackButton.isDisplayed());
+//        Assert.assertTrue(removeTshirtButton.isDisplayed());
+        Assert.assertTrue(productsPage.areRemoveButtonsDisplayed());
 
+    }
 
     @Test
     public void logoutUser() {

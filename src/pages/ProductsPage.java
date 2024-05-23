@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -33,6 +34,16 @@ public class ProductsPage {
     }
     public void selectFilter() {
         driver.findElement(productSortFilter).click();
+    }
+    public WebElement getRemoveBackpackButton() {
+        return driver.findElement(By.id("remove-sauce-labs-backpack"));
+    }
+    public WebElement getRemoveTshirtButton() {
+        return driver.findElement(By.id("remove-sauce-labs-bolt-t-shirt"));
+    }
+
+    public boolean areRemoveButtonsDisplayed() {
+        return getRemoveBackpackButton().isDisplayed() && getRemoveTshirtButton().isDisplayed();
     }
 
     public void addProducts() {
