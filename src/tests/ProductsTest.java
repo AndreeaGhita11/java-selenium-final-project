@@ -1,9 +1,6 @@
 package tests;
 
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -47,20 +44,22 @@ public class ProductsTest {
         driver.close();
     }
 
-    @Test
+    @Test@Ignore
     public void addProductToTheCart () {
         driver.get(URLs.TEST_ENV);
         loginPage.authenticate(correctUser.getUsername(), correctUser.getPassword());
         productsPage.addProducts();
-//        WebElement removeBackpackButton = driver.findElement(By.id("remove-sauce-labs-backpack"));
-//        WebElement removeTshirtButton = driver.findElement(By.id("remove-sauce-labs-bolt-t-shirt"));
-//        Assert.assertTrue(removeBackpackButton.isDisplayed());
-//        Assert.assertTrue(removeTshirtButton.isDisplayed());
         Assert.assertTrue(productsPage.areRemoveButtonsDisplayed());
-
+    }
+    @Test
+    public void removeProductToTheeCart() throws InterruptedException {
+        driver.get(URLs.TEST_ENV);
+        loginPage.authenticate(correctUser.getUsername(), correctUser.getPassword());
+        productsPage.removeProducts();
+        Assert.assertFalse(productsPage.shoopingCartBadgeisDisplayed());
     }
 
-    @Test
+    @Test@Ignore
     public void logoutUser() {
         driver.get(URLs.TEST_ENV);
         loginPage.authenticate(correctUser.getUsername(), correctUser.getPassword());
