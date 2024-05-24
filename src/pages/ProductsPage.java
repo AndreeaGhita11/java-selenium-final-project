@@ -13,14 +13,11 @@ public class ProductsPage {
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
     }
-
-    //locators
     private By addToCartBackpackButton = By.id("add-to-cart-sauce-labs-backpack");
     private By addToCartTshirtButton = By.id("add-to-cart-sauce-labs-bolt-t-shirt");
     private By menuButton = By.id("react-burger-menu-btn");
     private By logoutSideBarLink = By.id("logout_sidebar_link");
     private By productSortFilter = By.className("product_sort_container");
-    private By shoppingCart = By.className("shopping_cart_link");
 
     public void clickToAddToCartBackpackButton(){
         driver.findElement(addToCartBackpackButton).click();
@@ -37,9 +34,6 @@ public class ProductsPage {
     public void selectFilter() {
         driver.findElement(productSortFilter).click();
     }
-    public void clickToShoppingCart() {
-        driver.findElement(shoppingCart).click();
-    }
     public WebElement removeBackpackButton() {
         return driver.findElement(By.id("remove-sauce-labs-backpack"));
     }
@@ -50,24 +44,18 @@ public class ProductsPage {
     public boolean areRemoveButtonsDisplayed() {
         return removeBackpackButton().isDisplayed() && removeTshirtButton().isDisplayed();
     }
-
     public void addProducts() {
         clickToAddToCartBackpackButton();
         clickToAddToCartTshirtButton();
     }
-
-    public void removeProducts() throws InterruptedException {
+    public void removeProducts()  {
         clickToAddToCartBackpackButton();
-        Thread.sleep(2000);
         removeBackpackButton().click();
     }
-
     public WebElement shoppingCartBadge() {
         return driver.findElement(By.className("shopping_cart_badge"));
     }
-
     public boolean shoopingCartBadgeisDisplayed() {
-//        return  !shoppingCartBadge().isDisplayed();
         boolean isDisplayed;
         try {
             isDisplayed = shoppingCartBadge().isDisplayed();
@@ -76,12 +64,6 @@ public class ProductsPage {
         }
         return isDisplayed;
     }
-
-    //1. adaug proguse in cos
-    //2. ne ducem in pagina de shopping cart
-    //3. gasesc butonul de remove si il apasam
-    //4. verific daca mai exista elementul in pagina (produse in cos)
-
     public void logoutUser(){
         clickMenuButton();
         clickToLogoutLink();

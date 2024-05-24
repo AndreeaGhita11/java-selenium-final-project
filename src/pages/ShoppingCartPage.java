@@ -13,7 +13,7 @@ public class ShoppingCartPage {
     public ShoppingCartPage(WebDriver driver){
         this.driver = driver;
     }
-    private By backpackItemLink = By.xpath("//div[text()='Sauce Labs Backpack']");
+    private By backpackItemLink = By.xpath("//div[@data-test='inventory-item-name']");
     private By addBackpackButton = By.id("add-to-cart");
     private By shoppingCartButton = By.className("shopping_cart_link");
     private By checkoutButton = By.id("checkout");
@@ -23,12 +23,12 @@ public class ShoppingCartPage {
     private By continueButton = By.id("continue");
     private By finishButton = By.id("finish");
     private By backHomeButton = By.id("back-to-products");
-    private By productNameElement = By.xpath("//div[text()='Sauce Labs Backpack']");
-    private By productDetailElement = By.xpath("//div[text()='carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.']");
-    private By productPriceElement = By.xpath("//div[text()='29.99']");
-    private By checkoutInfoText = By.xpath("//span[text()='Checkout: Your Information']");
-    private By checkoutOverviewText = By.xpath("//span[text()='Checkout: Overview']");
-    private By shippingInfoLabel = By.xpath("//div[text()='Shipping Information:']");
+    private By productNameElement = By.xpath("//div[contains(@class, 'inventory_item_name') or contains(@class, 'inventory_details_name ')]");
+    private By productDetailElement = By.xpath("//div[contains(@class, 'inventory_item_desc') or contains(@class, 'inventory_details_desc ')]");
+    private By productPriceElement = By.xpath("//div[contains(@class, 'inventory_item_price') or contains(@class, 'inventory_details_price')]");
+    private By checkoutInfoText = By.xpath("//span[@data-test='title']");
+    private By checkoutOverviewText = By.xpath("//span[@data-test='title']");
+    private By shippingInfoLabel = By.xpath("//div[@data-test='shipping-info-label']");
     private By successTitle = By.xpath("//h2[@data-test='complete-header']");
     private By successText = By.xpath("//h2[@class='complete-header']/following-sibling::div[1]");
 
@@ -105,16 +105,4 @@ public class ShoppingCartPage {
    public String getSuccessText() {
         return getProductInfoTextByElement(successText);
    }
-
-
-    //1.ma loghez
-    //2. adaug un produs in cos
-    //3. dau click pe shopping cart button
-    //4. verific daca produsul a fost adaugat in cos
-    //5. dau click pe continue button
-    //6. creez o clasa de random generator pt a completa diferit valorile din complete data for order....
-    //7. verific?
-    //8. click pe finish order
-    //9. verific mesajul
-    //10. click pe back to pp
 }

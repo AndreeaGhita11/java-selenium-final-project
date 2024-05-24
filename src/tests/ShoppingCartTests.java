@@ -16,36 +16,7 @@ import testdata.pages.ItemCheck;
 
 import java.time.Duration;
 
-public class ShoppingCartTests {
-    static WebDriver driver;
-    public static LoginPage loginPage;
-    public CorrectUser correctUser = new CorrectUser("correctuser");
-    public InvalidUserData invalidData = new InvalidUserData("invaliduserdata");
-    public MissingUserData missingData = new MissingUserData("missinguserdata");
-    public LockedOutUser lockedOutUser = new LockedOutUser("lockedoutuser");
-    public OrderDetailsData orderDetailsData = new OrderDetailsData("orderdetailsdata");
-    public static ProductsPage productsPage;
-    public static ShoppingCartPage shoppingCartPage;
-
-    @BeforeClass
-    public static void setUp() {
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
-        System.setProperty("webdriver.chrome.driver", "src/resource/chromedriver.exe");
-        driver = new ChromeDriver(chromeOptions);
-        //wait implicit
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        loginPage = new LoginPage(driver);
-        productsPage = new ProductsPage(driver);
-        shoppingCartPage = new ShoppingCartPage(driver);
-    }
-
-    @AfterClass
-    public static void tearDown() {
-        driver.close();
-    }
-
+public class ShoppingCartTests extends BaseTest {
     @Test
     public void itemInShoppingCart() throws InterruptedException {
         driver.get(URLs.TEST_ENV);
@@ -66,9 +37,5 @@ public class ShoppingCartTests {
         shoppingCartPage.finishOrder();
         Assert.assertTrue(shoppingCartPage.getSuccessTitle().contains(ItemCheck.COMPLETE_ORDER_HEADER));
         Assert.assertTrue(shoppingCartPage.getSuccessText().contains(ItemCheck.COMPLETE_ORDER_TEXT));
-
-
-
-
     }
 }

@@ -36,7 +36,6 @@ public class BaseTest {
         productsPage = new ProductsPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
     }
-
     @AfterClass
     public static void tearDown() {
         driver.close();

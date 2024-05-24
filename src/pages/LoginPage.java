@@ -15,14 +15,11 @@ public class LoginPage {
     public LoginPage (WebDriver driver) {
         this.driver = driver;
     }
-
-    //locators
     private By usernameInput = By.id("user-name");
     private By passwordInput = By.id("password");
     private By loginButton = By.id("login-button");
     private By errorMessage = By.xpath("//div[@class='error-message-container error']");
 
-    //actions
     public void enterUsername(String username) {
         driver.findElement(usernameInput).sendKeys(username);
     }
@@ -38,25 +35,21 @@ public class LoginPage {
 
         return driver.findElement(errorMessage).getText();
     }
-
     public void authenticate(CorrectUser correctUser) {
         enterUsername(correctUser.getUsername());
         enterPassword(correctUser.getPassword());
         clickLoginButton();
     }
-
     public void authenticateInvalidUser(InvalidUserData invalidUserData) {
         enterUsername(invalidUserData.getUsername());
         enterPassword(invalidUserData.getPassword());
         clickLoginButton();
     }
-
     public void authenticateMissingData(MissingUserData missingUserData) {
         enterUsername(missingUserData.getUsername());
         enterPassword(missingUserData.getPassword());
         clickLoginButton();
     }
-
     public void authenticateLockedOutUser(LockedOutUser lockedOutUser) {
         enterUsername(lockedOutUser.getUsername());
         enterPassword(lockedOutUser.getPassword());
