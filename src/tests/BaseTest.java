@@ -9,7 +9,6 @@ import pages.LoginPage;
 import pages.ProductsPage;
 import pages.ShoppingCartPage;
 import testdata.classes.*;
-
 import java.time.Duration;
 
 public class BaseTest {

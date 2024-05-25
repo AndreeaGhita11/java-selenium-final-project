@@ -2,19 +2,9 @@ package tests;
 
 import org.junit.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import pages.LoginPage;
 import testdata.URLs;
-import testdata.classes.CorrectUser;
-import testdata.classes.InvalidUserData;
-import testdata.classes.LockedOutUser;
-import testdata.classes.MissingUserData;
 import testdata.pages.LoginErrors;
-
-import java.time.Duration;
 
 public class LoginTest extends BaseTest {
     @Test
@@ -41,5 +31,15 @@ public class LoginTest extends BaseTest {
         driver.get(URLs.TEST_ENV);
         loginPage.authenticateLockedOutUser(lockedOutUser);
         Assert.assertTrue(loginPage.getError().contains(LoginErrors.LOCKED_OUT_USER));
+    }
+    @Test
+    public void logoutUser() {
+        driver.get(URLs.TEST_ENV);
+        loginPage.authenticate(correctUser);
+        loginPage.logoutUser();
+        WebElement loginButton = driver.findElement(By.id("login-button"));
+        WebElement loginLogo = driver.findElement(By.xpath("//div[@class='login_container']//div"));
+        Assert.assertTrue(loginLogo.isDisplayed());
+        Assert.assertTrue(loginButton.isDisplayed());
     }
 }

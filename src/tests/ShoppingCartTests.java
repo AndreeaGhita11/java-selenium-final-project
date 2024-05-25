@@ -1,24 +1,13 @@
 package tests;
 
-import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import pages.LoginPage;
-import pages.ProductsPage;
-import pages.ShoppingCartPage;
 import testdata.URLs;
-import testdata.classes.*;
 import testdata.pages.ItemCheck;
-
-import java.time.Duration;
 
 public class ShoppingCartTests extends BaseTest {
     @Test
-    public void itemInShoppingCart() throws InterruptedException {
+    public void itemInShoppingCart() {
         driver.get(URLs.TEST_ENV);
         loginPage.authenticate(correctUser);
         shoppingCartPage.openAProduct();
