@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import testdata.classes.OrderDetailsData;
+import utils.RandomGenerator;
 
 import java.time.Duration;
 
@@ -61,9 +62,9 @@ public class ShoppingCartPage {
     }
 
     public void completeInfo(OrderDetailsData orderDetailsData) {
-        enterFirstName(orderDetailsData.getFirstname());
-        enterLastName(orderDetailsData.getLastname());
-        enterPostalCode(orderDetailsData.getPostalcode());
+        enterFirstName(orderDetailsData.getFirstname() + RandomGenerator.stringValue(3));
+        enterLastName(orderDetailsData.getLastname() + RandomGenerator.stringValue(3));
+        enterPostalCode(orderDetailsData.getPostalcode() + RandomGenerator.stringValue(3));
     }
 
     public void continueOrder() {
