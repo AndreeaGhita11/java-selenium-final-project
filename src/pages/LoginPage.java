@@ -23,6 +23,9 @@ public class LoginPage {
     private By errorMessage = By.xpath("//div[@class='error-message-container error']");
     private By menuButton = By.id("react-burger-menu-btn");
     private By logoutSideBarLink = By.id("logout_sidebar_link");
+    private By loginLogo = By.xpath("//div[@class='login_container']//div");
+    private By shoppingCartButton = By.id("shopping_cart_container");
+
 
     public void enterUsername(String username) {
         driver.findElement(usernameInput).sendKeys(username);
@@ -34,6 +37,18 @@ public class LoginPage {
 
     public void clickLoginButton() {
         driver.findElement(loginButton).click();
+    }
+
+    public boolean loginButtonIsDisplayed() {
+        return driver.findElement(loginButton).isDisplayed();
+    }
+
+    public boolean loginLogoIsDisplayed() {
+        return driver.findElement(loginLogo).isDisplayed();
+    }
+
+    public boolean shoppingCartButtonIsDisplayed() {
+        return driver.findElement(shoppingCartButton).isDisplayed();
     }
 
     public String getError() {

@@ -1,8 +1,6 @@
 package tests;
 
 import org.junit.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import testdata.URLs;
 import testdata.pages.LoginErrors;
 
@@ -11,8 +9,7 @@ public class LoginTest extends BaseTest {
     public void loginWithCorrectUser() {
         driver.get(URLs.TEST_ENV);
         loginPage.authenticate(correctUser);
-        WebElement shoppingcartButton = driver.findElement(By.id("shopping_cart_container"));
-        Assert.assertTrue(shoppingcartButton.isDisplayed());
+        Assert.assertTrue(loginPage.shoppingCartButtonIsDisplayed());
     }
     @Test
     public void loginWithInvalidData(){
@@ -37,9 +34,7 @@ public class LoginTest extends BaseTest {
         driver.get(URLs.TEST_ENV);
         loginPage.authenticate(correctUser);
         loginPage.logoutUser();
-        WebElement loginButton = driver.findElement(By.id("login-button"));
-        WebElement loginLogo = driver.findElement(By.xpath("//div[@class='login_container']//div"));
-        Assert.assertTrue(loginLogo.isDisplayed());
-        Assert.assertTrue(loginButton.isDisplayed());
+        Assert.assertTrue(loginPage.loginLogoIsDisplayed());
+        Assert.assertTrue(loginPage.loginButtonIsDisplayed());
     }
 }

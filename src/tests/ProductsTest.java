@@ -6,19 +6,21 @@ import testdata.pages.FilterOptions;
 
 public class ProductsTest extends BaseTest {
     @Test
-    public void addProductToTheCart () {
+    public void addProductToTheCart() {
         driver.get(URLs.TEST_ENV);
         loginPage.authenticate(correctUser);
         productsPage.addProducts();
         Assert.assertTrue(productsPage.areRemoveButtonsDisplayed());
     }
+
     @Test
-    public void removeProductToTheeCart()  {
+    public void removeProductToTheeCart() {
         driver.get(URLs.TEST_ENV);
         loginPage.authenticate(correctUser);
         productsPage.removeProducts();
         Assert.assertFalse(productsPage.shoopingCartBadgeisDisplayed());
     }
+
     @Test
     public void selectFilterOptions() {
         driver.get(URLs.TEST_ENV);

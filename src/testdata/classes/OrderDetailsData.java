@@ -7,7 +7,7 @@ public class OrderDetailsData {
     private String lastname;
     private String postalcode;
 
-    public OrderDetailsData(String filename){
+    public OrderDetailsData(String filename) {
         this.firstname = Reader.getJson(filename).get("firstname").toString();
         this.lastname = Reader.getJson(filename).get("lastname").toString();
         this.postalcode = Reader.getJson(filename).get("postalcode").toString();

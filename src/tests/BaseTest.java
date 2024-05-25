@@ -9,6 +9,7 @@ import pages.LoginPage;
 import pages.ProductsPage;
 import pages.ShoppingCartPage;
 import testdata.classes.*;
+
 import java.time.Duration;
 
 public class BaseTest {
@@ -35,6 +36,7 @@ public class BaseTest {
         productsPage = new ProductsPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
     }
+
     @AfterClass
     public static void tearDown() {
         driver.close();
