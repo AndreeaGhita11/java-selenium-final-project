@@ -47,18 +47,9 @@ public class ProductsPage {
         removeBackpackButton().click();
     }
 
-    public WebElement shoppingCartBadge() {
-        return driver.findElement(By.className("shopping_cart_badge"));
-    }
 
     public boolean shoopingCartBadgeisDisplayed() {
-        boolean isDisplayed;
-        try {
-            isDisplayed = shoppingCartBadge().isDisplayed();
-        } catch (NoSuchElementException e) {
-            isDisplayed = false;
-        }
-        return isDisplayed;
+        return driver.findElements(By.className("shopping_cart_badge")).size() > 0;
     }
 
     public void selectFilterByIndex(int index) {

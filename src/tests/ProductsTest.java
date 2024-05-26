@@ -11,6 +11,7 @@ public class ProductsTest extends BaseTest {
         loginPage.authenticate(correctUser);
         productsPage.addProducts();
         Assert.assertTrue(productsPage.areRemoveButtonsDisplayed());
+        Assert.assertTrue(header.appLogoIsDisplayed());
     }
 
     @Test
@@ -19,6 +20,7 @@ public class ProductsTest extends BaseTest {
         loginPage.authenticate(correctUser);
         productsPage.removeProducts();
         Assert.assertFalse(productsPage.shoopingCartBadgeisDisplayed());
+        Assert.assertTrue(header.appLogoIsDisplayed());
     }
 
     @Test
