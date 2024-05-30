@@ -1,4 +1,4 @@
-package com.java.testdata.pages;
+package testdata.pages;
 
 public class ItemCheck {
     public final static String PRODUCT_NAME = "Sauce Labs Backpack";
