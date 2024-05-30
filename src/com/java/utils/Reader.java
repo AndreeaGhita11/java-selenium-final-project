@@ -1,4 +1,4 @@
-package utils;
+package com.java.utils;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,8 +11,8 @@ import java.io.IOException;
 public class Reader {
     //method to read data and return the JSON object from a  json file
     public static JSONObject getJson(String name) {
-        String jsonPath = System.getProperty("user.dir") + "\\src\\testdata\\files\\" + name + ".json";
-        // "\\src\\testdata\\files\\mainuser.json"
+        String jsonPath = System.getProperty("user.dir") + "\\src\\com\\java\\testdata\\files\\" + name + ".json";
+        // "\\src\\com.java.testdata\\files\\mainuser.json"
 
         //read the json file from the specified location
         FileReader reader = null;

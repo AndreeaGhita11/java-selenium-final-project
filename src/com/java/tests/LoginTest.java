@@ -1,8 +1,8 @@
-package tests;
+package com.java.tests;
 
 import org.junit.*;
-import testdata.URLs;
-import testdata.pages.LoginErrors;
+import com.java.testdata.URLs;
+import com.java.testdata.pages.LoginErrors;
 
 public class LoginTest extends BaseTest {
     @Test

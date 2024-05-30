@@ -1,12 +1,12 @@
-package testdata.classes;
+package com.java.testdata.classes;
 
-import utils.Reader;
+import com.java.utils.Reader;
 
-public class MissingUserData {
+public class CorrectUser {
     private String username;
     private String password;
 
-    public MissingUserData(String filename) {
+    public CorrectUser(String filename) {
         this.username = Reader.getJson(filename).get("username").toString();
         this.password = Reader.getJson(filename).get("password").toString();
     }

@@ -1,4 +1,4 @@
-package testdata.pages;
+package com.java.testdata.pages;
 
 public class FilterOptions {
     public final static String FILTER_AZ = "Name (A to Z)";

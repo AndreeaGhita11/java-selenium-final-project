@@ -1,6 +1,6 @@
-package testdata.classes;
+package com.java.testdata.classes;
 
-import utils.Reader;
+import com.java.utils.Reader;
 
 public class OrderDetailsData {
     private String firstname;

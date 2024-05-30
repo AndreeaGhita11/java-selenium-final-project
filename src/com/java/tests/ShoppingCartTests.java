@@ -1,9 +1,9 @@
-package tests;
+package com.java.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
-import testdata.URLs;
-import testdata.pages.ItemCheck;
+import com.java.testdata.URLs;
+import com.java.testdata.pages.ItemCheck;
 
 public class ShoppingCartTests extends BaseTest {
     @Test
