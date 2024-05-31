@@ -1,10 +1,10 @@
-package pages;
+package com.selenium.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import testdata.classes.OrderDetailsData;
-import utils.RandomGenerator;
+import com.selenium.testdata.classes.OrderDetailsData;
+import com.selenium.utils.RandomGenerator;
 
 import java.time.Duration;
 

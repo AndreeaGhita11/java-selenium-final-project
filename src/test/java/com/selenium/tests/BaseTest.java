@@ -1,15 +1,15 @@
-package tests;
+package com.selenium.tests;
 
-import components.Header;
+import com.selenium.components.Header;
+import com.selenium.testdata.classes.*;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import pages.LoginPage;
-import pages.ProductsPage;
-import pages.ShoppingCartPage;
-import testdata.classes.*;
+import com.selenium.pages.LoginPage;
+import com.selenium.pages.ProductsPage;
+import com.selenium.pages.ShoppingCartPage;
 
 import java.time.Duration;
 
@@ -29,7 +29,7 @@ public class BaseTest {
     public static void setUp() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
-        System.setProperty("webdriver.chrome.driver", "src/test/java/resource/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
         driver = new ChromeDriver(chromeOptions);
         //wait implicit
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

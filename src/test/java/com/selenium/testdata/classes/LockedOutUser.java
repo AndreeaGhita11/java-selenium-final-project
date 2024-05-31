@@ -1,12 +1,12 @@
-package testdata.classes;
+package com.selenium.testdata.classes;
 
-import utils.Reader;
+import com.selenium.utils.Reader;
 
-public class CorrectUser {
+public class LockedOutUser {
     private String username;
     private String password;
 
-    public CorrectUser(String filename) {
+    public LockedOutUser(String filename) {
         this.username = Reader.getJson(filename).get("username").toString();
         this.password = Reader.getJson(filename).get("password").toString();
     }

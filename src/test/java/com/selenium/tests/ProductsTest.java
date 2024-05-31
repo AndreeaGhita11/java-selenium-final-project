@@ -1,8 +1,8 @@
-package tests;
+package com.selenium.tests;
 
 import org.junit.*;
-import testdata.URLs;
-import testdata.pages.FilterOptions;
+import com.selenium.testdata.URLs;
+import com.selenium.testdata.pages.FilterOptions;
 
 public class ProductsTest extends BaseTest {
     @Test

@@ -1,4 +1,4 @@
-package testdata.pages;
+package com.selenium.testdata.pages;
 
 public class ItemCheck {
     public final static String PRODUCT_NAME = "Sauce Labs Backpack";

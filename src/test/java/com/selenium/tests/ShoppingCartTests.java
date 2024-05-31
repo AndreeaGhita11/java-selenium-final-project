@@ -1,9 +1,9 @@
-package tests;
+package com.selenium.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
-import testdata.URLs;
-import testdata.pages.ItemCheck;
+import com.selenium.testdata.URLs;
+import com.selenium.testdata.pages.ItemCheck;
 
 public class ShoppingCartTests extends BaseTest {
     @Test

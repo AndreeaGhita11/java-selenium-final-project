@@ -1,12 +1,12 @@
-package pages;
+package com.selenium.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import testdata.classes.CorrectUser;
-import testdata.classes.InvalidUserData;
-import testdata.classes.LockedOutUser;
-import testdata.classes.MissingUserData;
+import com.selenium.testdata.classes.CorrectUser;
+import com.selenium.testdata.classes.InvalidUserData;
+import com.selenium.testdata.classes.LockedOutUser;
+import com.selenium.testdata.classes.MissingUserData;
 
 import java.time.Duration;
 

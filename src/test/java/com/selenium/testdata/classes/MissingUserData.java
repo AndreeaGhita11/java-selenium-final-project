@@ -1,6 +1,6 @@
-package testdata.classes;
+package com.selenium.testdata.classes;
 
-import utils.Reader;
+import com.selenium.utils.Reader;
 
 public class MissingUserData {
     private String username;
