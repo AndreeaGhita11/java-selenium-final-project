@@ -15,6 +15,10 @@ public class ProductsPage {
     private By addToCartBackpackButton = By.id("add-to-cart-sauce-labs-backpack");
     private By addToCartTshirtButton = By.id("add-to-cart-sauce-labs-bolt-t-shirt");
     private By sortActiveOptionElement = By.className("active_option");
+    private By removeBypackButton = By.id("remove-sauce-labs-backpack");
+    private By removeTshitButton = By.id("remove-sauce-labs-bolt-t-shirt");
+    private By shoppingCardBadge = By.className("shopping_cart_badge");
+    private By shoppingCartContainer = By.className("product_sort_container");
 
     public void clickToAddToCartBackpackButton() {
         driver.findElement(addToCartBackpackButton).click();
@@ -25,11 +29,11 @@ public class ProductsPage {
     }
 
     public WebElement removeBackpackButton() {
-        return driver.findElement(By.id("remove-sauce-labs-backpack"));
+        return driver.findElement(removeBypackButton);
     }
 
     public WebElement removeTshirtButton() {
-        return driver.findElement(By.id("remove-sauce-labs-bolt-t-shirt"));
+        return driver.findElement(removeTshitButton);
     }
 
     public boolean areRemoveButtonsDisplayed() {
@@ -48,11 +52,11 @@ public class ProductsPage {
 
 
     public boolean shoopingCartBadgeisDisplayed() {
-        return driver.findElements(By.className("shopping_cart_badge")).size() > 0;
+        return driver.findElements(shoppingCardBadge).size() > 0;
     }
 
     public void selectFilterByIndex(int index) {
-        Select classicSelect = new Select(driver.findElement(By.className("product_sort_container")));
+        Select classicSelect = new Select(driver.findElement(shoppingCartContainer));
         classicSelect.selectByIndex(index);
     }
 
