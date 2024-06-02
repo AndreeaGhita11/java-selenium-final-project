@@ -1,8 +1,8 @@
-# Selenium Java Project with TestNG and Maven
+# Selenium Java Project with JUnit and Maven
 
 ## Description
 
-This project is a suite of automated tests developed using Selenium WebDriver in Java programming language, surrounded by TestNG and managed with Maven. The tests are designed to validate the functionality and behavior of web pages of the [Sauce Demo](https://www.saucedemo.com/) website.
+This project is a suite of automated tests developed using Selenium WebDriver in Java programming language, surrounded by JUnit 5 and managed with Maven. The tests are designed to validate the functionality and behavior of web pages of the [Sauce Demo](https://www.saucedemo.com/) website.
 
 ## Overview
 
@@ -12,9 +12,8 @@ The project utilizes Maven for dependency management and project building. The `
 
 - **Selenium WebDriver**: Version 4.21.0
 - **JSON-Simple**: Version 1.1.1
-- **TestNG**: Version 7.7.1
+- **JUnit**: Version 5.10.2
 - **Hamcrest Core**: Version 1.3
-- **SLF4J Simple**: Version 1.7.30
 - **Java Development Kit** (JDK): Version 21
 
 ## Getting Started

@@ -17,10 +17,10 @@ public class BaseTest {
     static WebDriver driver;
     public static LoginPage loginPage;
     public static Header header;
-    public CorrectUser correctUser = new CorrectUser("correctuser");
-    public InvalidUserData invalidData = new InvalidUserData("invaliduserdata");
-    public MissingUserData missingData = new MissingUserData("missinguserdata");
-    public LockedOutUser lockedOutUser = new LockedOutUser("lockedoutuser");
+    public UserData correctUser = new UserData("correctuser");
+    public UserData invalidData = new UserData("invaliduserdata");
+    public UserData missingData = new UserData("missinguserdata");
+    public UserData lockedOutUser = new UserData("lockedoutuser");
     public OrderDetailsData orderDetailsData = new OrderDetailsData("orderdetailsdata");
     public static ProductsPage productsPage;
     public static ShoppingCartPage shoppingCartPage;
