@@ -2,11 +2,11 @@ package com.selenium.testdata.classes;
 
 import com.selenium.utils.Reader;
 
-public class LockedOutUser {
+public class UserData {
     private String username;
     private String password;
 
-    public LockedOutUser(String filename) {
+    public UserData(String filename) {
         this.username = Reader.getJson(filename).get("username").toString();
         this.password = Reader.getJson(filename).get("password").toString();
     }

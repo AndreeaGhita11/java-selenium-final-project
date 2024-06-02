@@ -5,58 +5,46 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.time.Duration;
+
 public class ProductsPage {
     WebDriver driver;
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
-    private By addToCartBackpackButton = By.id("add-to-cart-sauce-labs-backpack");
-    private By addToCartTshirtButton = By.id("add-to-cart-sauce-labs-bolt-t-shirt");
-    private By sortActiveOptionElement = By.className("active_option");
-    private By removeBypackButton = By.id("remove-sauce-labs-backpack");
-    private By removeTshitButton = By.id("remove-sauce-labs-bolt-t-shirt");
-    private By shoppingCardBadge = By.className("shopping_cart_badge");
-    private By shoppingCartContainer = By.className("product_sort_container");
+    private By addToCartButton = By.xpath("//button[contains(@class, 'btn_primary')]");
+    private By removeFromCartButton = By.xpath("//button[contains(@class, 'btn_secondary')]");
+    private By shoppingCartBadge = By.xpath("//span[@class='shopping_cart_badge']");
+    private By sortActiveOptionElement = By.xpath("//span[@class='active_option']");
+    private By sortProductsElement = By.xpath("//select[@class='product_sort_container']");
 
-    public void clickToAddToCartBackpackButton() {
-        driver.findElement(addToCartBackpackButton).click();
+    public int getCartItemCount() {
+        if (driver.findElements(shoppingCartBadge).size() == 0) {
+            return 0;
+        } else {
+            return Integer.parseInt(driver.findElement(shoppingCartBadge).getText());
+        }
     }
 
-    public void clickToAddToCartTshirtButton() {
-        driver.findElement(addToCartTshirtButton).click();
+    public void clickToAddOneProductToCart() {
+        driver.findElement(addToCartButton).click();
     }
 
-    public WebElement removeBackpackButton() {
-        return driver.findElement(removeBypackButton);
+    public void removeAllProductsFromCart() {
+        driver.findElements(removeFromCartButton).forEach(
+                button -> button.click()
+        );
     }
 
-    public WebElement removeTshirtButton() {
-        return driver.findElement(removeTshitButton);
-    }
-
-    public boolean areRemoveButtonsDisplayed() {
-        return removeBackpackButton().isDisplayed() && removeTshirtButton().isDisplayed();
-    }
-
-    public void addProducts() {
-        clickToAddToCartBackpackButton();
-        clickToAddToCartTshirtButton();
-    }
-
-    public void removeProducts() {
-        clickToAddToCartBackpackButton();
-        removeBackpackButton().click();
-    }
-
-
-    public boolean shoopingCartBadgeisDisplayed() {
-        return driver.findElements(shoppingCardBadge).size() > 0;
+    public void clickToRemoveOneProductFromCart() {
+        driver.findElement(removeFromCartButton).click();
     }
 
     public void selectFilterByIndex(int index) {
-        Select classicSelect = new Select(driver.findElement(shoppingCartContainer));
+        Select classicSelect = new Select(driver.findElement(sortProductsElement));
         classicSelect.selectByIndex(index);
     }
 

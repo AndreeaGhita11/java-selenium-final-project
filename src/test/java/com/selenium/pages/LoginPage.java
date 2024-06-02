@@ -1,12 +1,9 @@
 package com.selenium.pages;
 
+import com.selenium.testdata.classes.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.selenium.testdata.classes.CorrectUser;
-import com.selenium.testdata.classes.InvalidUserData;
-import com.selenium.testdata.classes.LockedOutUser;
-import com.selenium.testdata.classes.MissingUserData;
 
 import java.time.Duration;
 
@@ -61,25 +58,25 @@ public class LoginPage {
         driver.findElement(logoutSideBarLink).click();
     }
 
-    public void authenticate(CorrectUser correctUser) {
+    public void authenticate(UserData correctUser) {
         enterUsername(correctUser.getUsername());
         enterPassword(correctUser.getPassword());
         clickLoginButton();
     }
 
-    public void authenticateInvalidUser(InvalidUserData invalidUserData) {
+    public void authenticateInvalidUser(UserData invalidUserData) {
         enterUsername(invalidUserData.getUsername());
         enterPassword(invalidUserData.getPassword());
         clickLoginButton();
     }
 
-    public void authenticateMissingData(MissingUserData missingUserData) {
+    public void authenticateMissingData(UserData missingUserData) {
         enterUsername(missingUserData.getUsername());
         enterPassword(missingUserData.getPassword());
         clickLoginButton();
     }
 
-    public void authenticateLockedOutUser(LockedOutUser lockedOutUser) {
+    public void authenticateLockedOutUser(UserData lockedOutUser) {
         enterUsername(lockedOutUser.getUsername());
         enterPassword(lockedOutUser.getPassword());
         clickLoginButton();
