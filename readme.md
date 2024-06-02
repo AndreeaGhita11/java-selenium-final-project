@@ -30,7 +30,7 @@ Make sure you have Java Development Kit (JDK) installed on your system.
 
 ## Usage
 
-Execute the test suites using TestNG:
+Execute the test suites:
 
 ```bash
 mvn test
